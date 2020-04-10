@@ -1,2 +1,4 @@
 # college
-Projekt na przedmiot Programowanie portali biznesowych
+Temat: Uczelnie
+
+Wykorzystane technologie: Angular + Spring Boot
