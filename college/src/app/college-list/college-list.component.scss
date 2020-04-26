@@ -1,0 +1,25 @@
+.college-card {
+
+    margin-top:20px;
+
+    .card-content {
+
+        display: flex;
+        width:100%;
+        justify-content: space-evenly;
+
+        .card-content--item {
+            display: flex;
+
+            p {
+                margin:4px 0 0 5px;
+            }
+        }
+    }
+}
+
+.button--add {
+    position:absolute;
+    right: 20px;
+    bottom: 10px;
+}

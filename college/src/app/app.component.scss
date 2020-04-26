@@ -1,0 +1,42 @@
+.container {
+    position:relative;
+    top:20px;
+    border-radius: 5px;
+    margin: auto;
+    width:50%;
+    text-align: center;
+    padding:20px 20px 60px 20px;
+    background: #201f1f;
+
+    .text--title {
+        font-size: 28px;
+        font-weight: 500;
+    }
+
+    .text--title__white {
+        @extend .text--title;
+        color:#ddcece
+    }
+
+
+    .menu {
+        background:lightblue;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-bottom:10px;
+    
+        a {
+            padding: 10px 20px;
+            width:100%;
+            text-align: center;
+    
+            &:hover {
+                background-color: #2e2ed4;
+                color:white;
+            }
+        }
+    }
+
+}
+

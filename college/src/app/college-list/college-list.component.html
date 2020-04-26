@@ -1,0 +1,30 @@
+<mat-card class="college-card" *ngFor="let college of colleges">
+    <mat-card-header>
+        <div mat-card-avatar><mat-icon>school</mat-icon></div>
+        <mat-card-title>{{college.name}}</mat-card-title>
+        <mat-card-subtitle>{{college.type}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="card-content">
+        <div class="card-content--item">
+            <mat-icon>location_on</mat-icon>
+            <p>{{college.country}}, {{college.city}}</p>
+        </div>
+        <div class="card-content--item">
+            <mat-icon>person</mat-icon>
+            <p>{{college.rector}}</p>
+        </div>
+        <div class="card-content--item">
+            <mat-icon>people</mat-icon>
+            <p>{{college.numberOfStudents}}</p>
+        </div>
+        <div class="card-content--item">
+            <mat-icon>schedule</mat-icon>
+            <p>{{college.foundationYear}}</p>
+        </div>
+    </mat-card-content>
+    <mat-card-actions align="end">
+        <button mat-raised-button (click)="editDialog(college.id)"><mat-icon>edit</mat-icon></button>
+        <button mat-raised-button color="warn" (click)="deleteCollege(college.id)"><mat-icon>remove</mat-icon></button>
+    </mat-card-actions>
+</mat-card>
+<button mat-raised-button class="button__green button--add" (click)="addDialog()"><mat-icon>add</mat-icon></button>

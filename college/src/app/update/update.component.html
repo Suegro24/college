@@ -1,0 +1,68 @@
+<h2 mat-dialog-title align="center">Edytowanie uczelni z id = {{data.id}}</h2>
+<mat-dialog-content>
+    <form class="form" #editCollegeForm="ngForm" (ngSubmit)="editCollege()">
+
+        <div class="form-group">
+            <input [class.input--warn]="name.invalid && name.touched" type="text" placeholder="Name" name="name" 
+            [(ngModel)]="collegeModel.name" #name="ngModel" pattern=".{1,64}" required>
+            <div *ngIf="name.errors && (name.invalid || name.touched)">
+                <p class="text--warn" *ngIf="name.errors.required">Name is required</p>
+                <p class="text--warn" *ngIf="name.errors.pattern">Name can`t be longer than 64 characters</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input type="text" [class.input--warn]="country.invalid && country.touched" placeholder="Country" name="country" [(ngModel)]="collegeModel.country" #country="ngModel" pattern=".{3,10}" required>
+            <div *ngIf="country.errors && country.touched">
+                <p class="text--warn" *ngIf="country.errors.required">Country is required</p>
+                <p class="text--warn" *ngIf="country.errors.pattern">Country`s name have to be between 3 and 10 characters</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input type="text" [class.input--warn]="city.invalid && city.touched" placeholder="City" name="city" [(ngModel)]="collegeModel.city" #city="ngModel" pattern=".{1,20}" required>
+            <div *ngIf="city.errors && city.touched">
+                <p class="text--warn" *ngIf="city.errors.required">City is required</p>
+                <p class="text--warn" *ngIf="city.errors.pattern">City`s name have to be between 1 and 20 characters</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input type="text" [class.input--warn]="rector.invalid && rector.touched" placeholder="Rector" name="rector" [(ngModel)]="collegeModel.rector" #rector="ngModel" pattern=".{1,50}" required>
+            <div *ngIf="rector.errors && rector.touched">
+                <p class="text--warn" *ngIf="rector.errors.required">Rector is required</p>
+                <p class="text--warn" *ngIf="rector.errors.pattern">Rector`s name have to be between 1 and 50 characters</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <select class="select" name="type" [(ngModel)]="collegeModel.type">
+                <option disabled selected value="">Select type of college</option>
+                <option *ngFor="let type of typesOfColleges">{{ type }}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <input type="number" [class.input--warn]="number.invalid && number.touched" placeholder="Number of students" name="numberOfStudents" #number="ngModel" pattern=".{1,6}" required [(ngModel)]="collegeModel.numberOfStudents">
+            <div *ngIf="number.errors && number.touched">
+                <p class="text--warn" *ngIf="number.errors.required">Number is required</p>
+                <p class="text--warn" *ngIf="number.errors.pattern">Number have to be between 1 and 999999</p>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <input type="number" [class.input--warn]="year.invalid && year.touched" placeholder="Foundation year" name="foundationYear" [(ngModel)]="collegeModel.foundationYear" #year="ngModel" pattern=".{3,4}" required>
+            <div *ngIf="year.errors && year.touched">
+                <p class="text--warn" *ngIf="year.errors.required">Foundation year is required</p>
+                <p class="text--warn" *ngIf="year.errors.pattern">Year have to be between 100 and 9999</p>
+            </div>
+        </div>
+
+        <mat-dialog-actions align="end">
+            <button [disabled]="editCollegeForm.form.invalid" class="button__green" type="submit" mat-raised-button [mat-dialog-close]="true">Edit</button>
+            <button mat-raised-button color="warn" [mat-dialog-close]="false">Cancel</button>
+        </mat-dialog-actions>
+        
+    </form>
+</mat-dialog-content>
+
